@@ -1,0 +1,12 @@
+---
+title: Assignment 1 (25%)
+---
+
+Your task is to ...
+
+
+```{r}
+#| output: asis
+source(here::here("course_info.R"))
+submit(schedule, "Assignment 1")
+```

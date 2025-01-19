@@ -1,0 +1,27 @@
+---
+title: ETX0000 Advanced Bean Counting
+author: "Week 1: What is a bean?"
+date: today
+toc: true
+format:
+  presentation-beamer: default
+---
+
+```{r setup, include=FALSE}
+source(here::here("setup.R"))
+```
+
+## First things first
+
+### Expectations
+
+* You know R and RStudio
+* You have a basic understanding of beans
+* You can count
+
+### Unit resources
+
+* Everything on **https://abc.numbat.space**
+* Assignments submitted on Github Classroom
+* Discussion on Ed
+

@@ -1,0 +1,56 @@
+---
+title: "ETX0000 Advanced Bean Counting"
+---
+
+Brief description of subject
+
+## Learning outcomes
+
+1. learn stuff
+2. learn some more stuff
+3. use R
+4. figure things out
+
+## Teachers
+
+* [**Freda Bloggs**](https://fredabloggs.com). Chief Examiner. Email: [Freda.Bloggs@monash.edu](mailto:Freda.Bloggs@monash.edu)
+* [**Harry Xu**](https://harryxu.com). Email: [Harry.Xu@monash.edu](mailto:Harry.Xu@monash.edu)
+
+## References
+
+* [*Advanced R*, 2e](https://adv-r.hadley.nz/) by Hadley Wickham.
+
+```{r}
+#| label: load_packages
+#| include: false
+#| message: false
+#| warning: false
+#| echo: false
+#| cache: false
+library(tidyverse)
+options(knitr.kable.NA = '')
+source(here::here("course_info.R"))
+week <- as.integer(1 + ((Sys.Date() - as_date(start_semester))/7))
+```
+
+## Weekly schedule
+
+* 2 hour workshop, Wednesdays 9am-11am each week, in Menzies E164.
+
+```{r}
+#| label: schedule2
+#| message: false
+#| warning: false
+#| echo: false
+#| output: asis
+schedule |>
+  transmute(
+    Date = format(Date + 2, "%d %b"),
+    Show = !is.na(Week) & Week <= 12,
+    Topic = if_else(!Show, Topic, glue::glue("[{Topic}](./week{Week}/index.html)")),
+    #Reference = if_else(!Show, Reference, glue::glue("[{Reference}]({Reference_URL})")),
+    Assessments = if_else(is.na(Assignment), Assignment, glue::glue("[{Assignment}]({File})"))
+  ) |>
+  select(-Show) |>
+  knitr::kable(format = "markdown")
+```
